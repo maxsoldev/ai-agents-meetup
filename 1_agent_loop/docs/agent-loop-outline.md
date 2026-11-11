@@ -274,7 +274,7 @@ Besides sandbox hardening production grade harnesses also provide
 
 ![Harness diagram](../imgs/harness-diagram.png)
 
-One such production-grade harness is pi built by our neighbour Mario Zechner from Austria. I'd like to share [pi](pi.dev) with you because of several reasons
+One such production-grade harness is pi built by our neighbour Mario Zechner from Austria. I'd like to share [pi](https://pi.dev) with you because of several reasons
 
 - Open Source - you know what's going on inside and can tweak it
 - Model-agnostic - no vendor lock-in, can use local models too
@@ -289,7 +289,7 @@ The cool thing about coding agents is that you can ask them to install and setup
 
 If you're just starting out you might like to use a harness with more "batteries" included out of the box like [OpenCode](https://opencode.ai/)
 
-Almost anything that you can do by hand on computer can be automated by an agent. You just need to give the agent a right tool. Example - use [Marp](https://marp.app/) to generate slide decks like [one we use today](./agent-foundations-deck.pdf) from [markdown file](agent-fight-club-deck.md).
+Almost anything that you can do by hand on computer can be automated by an agent. You just need to give the agent a right tool. Example - use [Marp](https://marp.app/) to generate slide decks like [one we use today](./agent-loop-deck.pdf) from [markdown file](agent-loop-deck.md).
 
 Biggest use case is to generate code but there are countless other processes in your life that can be iterated on quicker with agents.
 
@@ -319,11 +319,11 @@ We've covered:
 - Command permissions, confirmation prompts, and sandboxing
 - Why production harnesses such as pi add interfaces, retries, memory, and guardrails
 
-The best way to understand all of those concepts is to come home and work through the `outline.md` at your pace reading through the scripts and seeing how you can adjust or improve them.
+The best way to understand all of those concepts is to come home and work through the `agent-loop-outline.md` at your pace reading through the scripts and seeing how you can adjust or improve them.
 
-Then spin up a coding agent like [pi](pi.dev), pass it `outline.md` and ask to make a guided tour and ask you questions along the way to test your understanding.
+Then spin up a coding agent like [pi](https://pi.dev), pass it `agent-loop-outline.md` and ask to make a guided tour and ask you questions along the way to test your understanding.
 
-When you're ready to test your knowledge you can try [braingym](braingym.dev) for a tailored revision session.
+When you're ready to test your knowledge you can try [braingym](https://braingym.dev) for a tailored revision session.
 
 # Q&A
 
