@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adapted from agent_guild/meetups/1_agent_loop/imgs/agent-loop-diagram.svg
+     Restyled to the Agent Fight Club deck palette (amber / ink, IBM Plex Mono). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="-4 8 700 152" fill="none">
+  <style>
+    text {
+      font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      fill: #0a0a0a;
+    }
+    .box { stroke: #0a0a0a; stroke-width: 2; fill: #ffc105; }
+    .shadow { fill: #0a0a0a; }
+    .arrow { stroke: #0a0a0a; stroke-width: 2; fill: none; marker-end: url(#ah); }
+    .label {
+      font-size: 8px;
+      font-weight: 400;
+      fill: #0a0a0a;
+    }
+    .loop-bg { fill: #fff3d1; stroke: #0a0a0a; stroke-width: 2; stroke-dasharray: 6 4; }
+    .loop-label {
+      font-size: 9px;
+      font-weight: 700;
+      fill: #0a0a0a;
+      letter-spacing: 0.22em;
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="7" markerHeight="6" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#0a0a0a"/>
+    </marker>
+  </defs>
+
+  <!-- agentic loop region -->
+  <rect class="loop-bg" x="126" y="14" width="324" height="132"/>
+  <text class="loop-label" x="288" y="29" text-anchor="middle">AGENTIC LOOP</text>
+
+  <!-- Your prompt -->
+  <rect class="shadow" x="8" y="42" width="100" height="30"/>
+  <rect class="box" x="4" y="38" width="100" height="30"/>
+  <text x="54" y="58" text-anchor="middle">Your prompt</text>
+
+  <line class="arrow" x1="104" y1="53" x2="132" y2="53"/>
+
+  <!-- LLM evaluates -->
+  <rect class="shadow" x="140" y="42" width="134" height="30"/>
+  <rect class="box" x="136" y="38" width="134" height="30"/>
+  <text x="203" y="58" text-anchor="middle">LLM evaluates</text>
+
+  <line class="arrow" x1="278" y1="53" x2="330" y2="53"/>
+  <text class="label" x="304" y="48" text-anchor="middle">tool calls</text>
+
+  <!-- Execute tools -->
+  <rect class="shadow" x="338" y="42" width="104" height="30"/>
+  <rect class="box" x="334" y="38" width="104" height="30"/>
+  <text x="386" y="58" text-anchor="middle">Execute tools</text>
+
+  <!-- tool result: back into the loop -->
+  <path class="arrow" d="M 386 76 L 386 100 L 232 100 L 232 76"/>
+  <text class="label" x="309" y="96" text-anchor="middle">tool result</text>
+
+  <!-- no tool calls: exit the loop -->
+  <path class="arrow" d="M 170 72 L 170 132 L 516 132"/>
+  <text class="label" x="298" y="128" text-anchor="middle">no tool calls</text>
+
+  <!-- Final answer -->
+  <rect class="shadow" x="526" y="121" width="100" height="30"/>
+  <rect class="box" x="522" y="117" width="100" height="30"/>
+  <text x="572" y="136" text-anchor="middle">Final answer</text>
+</svg>

@@ -476,6 +476,8 @@ style: |
     justify-content: center;
   }
   section.loop .diagram img { width: 100%; display: block; }
+  section.loop { justify-content: flex-start; padding-top: 36px; }
+  section.loop .beats.three { grid-template-columns: repeat(3, 1fr); margin-top: 26px; }
   section.loop .diagram.dark { background: var(--night); padding: 8px; }
   section.loop .diagram.dark img { width: 92%; }
   section.loop .def {
@@ -880,6 +882,7 @@ style: |
   /* ---- Pull line: smaller sub-line under the main statement ---- */
   section.pull .line.rot { font-size: 64px; line-height: 1.22; }
   section.compo .take .small { font-size: 16px; font-weight: 400; }
+  section.compo .take .tip { font-weight: 700; letter-spacing: 0.15em; margin-right: 6px; }
   section.pull .sub { margin-top: 28px; font-size: 26px; border-top: 2px solid var(--ink); padding-top: 14px; max-width: 1080px; }
   section.pull .sub strong { background: var(--ink); color: var(--bg); padding: 0 6px; }
 
@@ -888,6 +891,10 @@ style: |
   section.rot .cols3 .card li { font-size: 17px; padding: 6px 0 6px 24px; }
   section.rot .take { border: 3px solid var(--ink); background: var(--paper); box-shadow: 7px 7px 0 var(--hot); padding: 10px 18px; font-weight: 700; font-size: 21px; text-align: center; margin-top: 26px; }
   section.rot .take .hl { background: var(--ink); color: var(--bg); padding: 0 6px; }
+  section.plate .take { border: 3px solid var(--ink); background: var(--paper); box-shadow: 7px 7px 0 var(--hot); padding: 10px 18px; font-weight: 700; font-size: 19px; text-align: center; margin-top: 24px; }
+  section.plate .frame.short { height: 475px; padding: 8px 12px; }
+  section.plate .caption { margin-top: 26px; font-size: 20px; text-align: center; color: var(--ink); }
+  section.plate .take .hl { background: var(--ink); color: var(--bg); padding: 0 6px; }
   section.rot .src { margin-top: 20px; font-size: 13px; color: var(--ink-soft); }
   section.rot .grp { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 18px; }
   section.rot .grp .g { grid-column: span 2; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 3px solid var(--ink); padding-bottom: 4px; margin-bottom: 12px; }
@@ -915,6 +922,7 @@ style: |
   section.cache .q .hl { background: var(--ink); color: var(--bg); padding: 0 6px; }
   section.cache .q .attrib { display: block; margin-top: 6px; font-size: 13px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
   section.cache .two { display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; margin-top: 22px; }
+  section.cache .two + .q { margin-top: 28px; }
   section.cache .box { border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--bg); padding: 14px 18px; }
   section.cache .box .k { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
   section.cache .box p { font-size: 18px; line-height: 1.4; margin: 0 0 8px; }
@@ -1139,9 +1147,9 @@ style: |
 </div>
 
 <div>
-<div class="label">Educodex Harness</div>
-<div class="qr"><img src="../images/qr-educodex.png" alt="educodex QR code" /></div>
-<div class="urlbox">https://github.com/maxsoldev/educodex</div>
+<div class="label">Eduagent Harness</div>
+<div class="qr"><img src="../images/qr-eduagent.png" alt="eduagent QR code" /></div>
+<div class="urlbox">https://github.com/maxsoldev/eduagent</div>
 </div>
 
 </div>
@@ -1277,16 +1285,6 @@ style: |
 
 ---
 
-<!-- _class: loop -->
-
-## Agent loop refresher
-
-<div class="def">An agent is <strong>an LLM autonomously using tools in a loop</strong><span class="attrib">— Simon Willison</span></div>
-
-<div class="diagram dark"><img src="../images/agentic-loop.png" /></div>
-
----
-
 <!-- _class: bigtitle -->
 
 <div class="num">1.1</div>
@@ -1297,11 +1295,19 @@ style: |
 
 ---
 
-<!-- _class: plate white -->
+<!-- _class: loop -->
 
-## Initial prompt anatomy
+## Agent loop refresher
 
-<div class="frame"><img src="../images/initial-prompt-anatomy.png" /></div>
+<div class="def">An agent is <strong>an LLM autonomously using tools in a loop</strong><span class="attrib">— Simon Willison</span></div>
+
+<div class="diagram"><img src="../images/agent-loop-diagram-afc.svg" alt="Your prompt → LLM evaluates → execute tools → tool result back into the loop; no tool calls → final answer" /></div>
+
+<div class="beats three">
+<div class="beat"><span class="k">Agent turn</span>One pass through the loop: one model call plus the tool calls it asks for.</div>
+<div class="beat"><span class="k">Agent run</span>One user message and all the turns after it, until the model replies with no tool calls.</div>
+<div class="beat"><span class="k">Agent session</span>All the runs that share one message history.</div>
+</div>
 
 ---
 
@@ -1309,7 +1315,29 @@ style: |
 
 ## Context window
 
-<div class="frame"><img src="../images/context-window.png" /></div>
+<div class="frame short"><img src="../images/context-window-cropped.png" /></div>
+
+<div class="take">Problem: the context window is <span class="hl">finite</span>. What belongs in it? How do we manage long sessions?</div>
+
+---
+
+<!-- _class: compo -->
+
+## Resend all previous input
+
+<div class="img"><img src="../images/context-growth-quadratic-cropped.png" /></div>
+
+<div class="take">Each call grows <span class="hl">linearly</span> → the total grows <span class="hl">quadratically</span><br/><span class="small">Every call resends the whole history: 6K + 11K + 16K + 21K + 26K = 80K after 5 calls</span></div>
+
+---
+
+<!-- _class: plate white -->
+
+## Initial prompt anatomy
+
+<div class="frame short"><img src="../images/initial-prompt-anatomy-cropped.png" /></div>
+
+<div class="take">Your message is <span class="hl">a small part</span> of the context. What fills the rest?</div>
 
 ---
 
@@ -1408,7 +1436,7 @@ style: |
 <div class="img dark"><img src="../images/context-composition-my.png" /></div>
 </div>
 
-<div class="take">Tool calls + results fill <span class="hl">57–68%</span> of the window. Your prompt is a rounding error.</div>
+<div class="take">Tool calls + results fill <span class="hl">57–68%</span> of the window. Your prompt is a rounding error.<br><span class="small"><span class="tip">TIP</span> Clear old tool output. The context gets smaller, and the user–agent conversation stays word for word.</span></div>
 
 ---
 
@@ -1441,21 +1469,11 @@ style: |
 
 ---
 
-<!-- _class: compo -->
-
-## Resend all previous input
-
-<div class="img"><img src="../images/context-growth-quadratic-cropped.png" /></div>
-
-<div class="take">Each call grows <span class="hl">linearly</span> → the total grows <span class="hl">quadratically</span><br/><span class="small">Every call resends the whole history: 6K + 11K + 16K + 21K + 26K = 80K after 5 calls</span></div>
-
----
-
 <!-- _class: bigtitle -->
 
 <div class="num">Demo</div>
 
-# Educodex Context Demo
+# Eduagent Context Demo
 
 <div class="kicker">An educational harness based on Codex: see <strong>every token</strong> the model receives.</div>
 
@@ -1475,7 +1493,7 @@ style: |
 
 <div class="line rot">As context grows, the model gets <span class="hl">worse at using&nbsp;it</span></div>
 
-<div class="sub">A model that <strong>accepts</strong> 1M tokens doesn't <strong>use</strong> 1M tokens well. And every request gets slower and more expensive.</div>
+<div class="sub">A model that accepts 1M tokens doesn't use 1M tokens well.<br>And <strong>every request gets slower, less accurate and more expensive</strong>.</div>
 
 <div class="attrib">Context rot · Chroma, 2025 · Anthropic, 2025</div>
 
@@ -1633,16 +1651,12 @@ style: |
 
 ## What is prompt caching?
 
-<div class="q">"The <span class="hl">KV-cache hit rate</span> is the single most important metric for a production-stage AI agent"<span class="attrib">— Yichao Ji, Manus, 2025</span></div>
-
 <div class="two">
 
 <div class="box">
 <div class="k">What</div>
 
-Save the result of an expensive computation and reuse it, instead of computing it again.
-
-The cache stores <strong>KV tensors</strong>, not the tokens.
+<strong>Save the result</strong> of an expensive computation (processing the prompt prefix) and reuse it, instead of computing it again.
 
 </div>
 
@@ -1657,27 +1671,7 @@ The cache stores <strong>KV tensors</strong>, not the tokens.
 
 </div>
 
----
-
-<!-- _class: plate short -->
-
-## Caching visualised
-
-<div class="frame"><img src="../images/caching-cmu-cropped.png" /></div>
-
-<div class="note">Each call reads the cached prefix and computes only the <strong>new</strong> part</div>
-
-<div class="note src">Neubig, CMU 11-768, 2026 · Gim et al., Prompt Cache, MLSys 2024</div>
-
----
-
-<!-- _class: plate miss -->
-
-## Cache miss: change the prefix, pay for everything again
-
-<div class="frame"><img src="../images/caching-claude.png" /></div>
-
-<div class="note">A change anywhere <strong>invalidates everything after it</strong>, even content that did not change</div>
+<div class="q">"The <span class="hl">KV-cache hit rate</span> is the single most important metric for a production-stage AI agent"<span class="attrib">— Yichao Ji, Manus, 2025</span></div>
 
 ---
 
@@ -1703,21 +1697,15 @@ The cache stores <strong>KV tensors</strong>, not the tokens.
 
 ---
 
-<!-- _class: cache -->
+<!-- _class: plate short -->
 
-## Three ways to cache
+## Caching visualised
 
-<div class="ben three">
+<div class="frame"><img src="../images/caching-cmu-cropped.png" /></div>
 
-<div class="t dark"><div class="big sm">Implicit</div><div class="h">Provider decides</div><div class="d">The provider caches common prefixes. You change nothing. Best effort: no hit is guaranteed</div><div class="tag">OpenAI · Gemini</div></div>
+<div class="note">Each call reads the cached prefix and computes only the <strong>new</strong> part</div>
 
-<div class="t"><div class="big sm">Breakpoints</div><div class="h">You mark the prefix</div><div class="d">A marker on a block: "cache everything up to here". The next request reads the longest entry that still matches. Usually up to 4 markers</div><div class="tag">Claude · Bedrock · OpenAI GPT-5.6+</div></div>
-
-<div class="t"><div class="big sm">Cache objects</div><div class="h">You upload once</div><div class="d">Upload the content, get a cache ID, refer to it later. You pay for storage per hour until the TTL ends</div><div class="tag">Gemini</div></div>
-
-</div>
-
-<div class="take">Agents use the first two: a growing chat needs a prefix that <span class="hl">moves forward</span></div>
+<div class="note src">Neubig, CMU 11-768, 2026 · Gim et al., Prompt Cache, MLSys 2024</div>
 
 ---
 
@@ -1755,6 +1743,34 @@ The cache stores <strong>KV tensors</strong>, not the tokens.
 </div>
 
 <div class="take">One model switch at 220K tokens ≈ <span class="hl">11 cached steps</span> of cost</div>
+
+---
+
+<!-- _class: plate miss -->
+
+## Cache miss: change the prefix, pay for everything again
+
+<div class="frame"><img src="../images/caching-claude.png" /></div>
+
+<div class="note">A change anywhere <strong>invalidates everything after it</strong>, even content that did not change</div>
+
+---
+
+<!-- _class: cache -->
+
+## Three ways to cache
+
+<div class="ben three">
+
+<div class="t dark"><div class="big sm">Implicit</div><div class="h">Provider decides</div><div class="d">The provider caches common prefixes. You change nothing. Best effort: no hit is guaranteed</div><div class="tag">OpenAI · Gemini</div></div>
+
+<div class="t"><div class="big sm">Breakpoints</div><div class="h">You mark the prefix</div><div class="d">A marker on a block: "cache everything up to here". The next request reads the longest entry that still matches. Usually up to 4 markers</div><div class="tag">Claude · Bedrock · OpenAI GPT-5.6+</div></div>
+
+<div class="t"><div class="big sm">Cache objects</div><div class="h">You upload once</div><div class="d">Upload the content, get a cache ID, refer to it later. You pay for storage per hour until the TTL ends</div><div class="tag">Gemini</div></div>
+
+</div>
+
+<div class="take">Agents use the first two: a growing chat needs a prefix that <span class="hl">moves forward</span></div>
 
 ---
 
