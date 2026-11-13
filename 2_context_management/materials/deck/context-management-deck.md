@@ -962,7 +962,7 @@ style: |
   /* ---- Context engineering: definition, four moves, family slides ---- */
   section.ce .hl { background: var(--ink); color: var(--bg); padding: 0 6px; }
   section.ce .dark .hl { background: var(--bg); color: var(--ink); }
-  section.ce .def { font-weight: 700; font-size: 30px; line-height: 1.25; letter-spacing: -0.03em; margin: 4px 0 22px; }
+  section.ce .def { font-weight: 700; font-size: 30px; line-height: 1.4; letter-spacing: -0.03em; margin: 4px 0 22px; }
   section.ce .def strong { background: var(--ink); color: var(--bg); padding: 0 6px; }
   section.ce .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   section.ce .qc { border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--bg); padding: 14px 16px; font-size: 18px; line-height: 1.38; font-weight: 700; display: flex; flex-direction: column; }
@@ -1078,6 +1078,91 @@ style: |
   section.tk .rows .n { background: var(--ink); color: var(--bg); font-weight: 700; text-align: center; border-bottom-color: var(--bg); }
   section.tk .rows .c { font-weight: 700; }
   section.tk .rows .a { background: var(--paper); }
+
+  /* ---- v2: context engineering, spread out ---- */
+  /* demo / voice-over banner: frames the live example */
+  section.ce .demo { display: flex; gap: 14px; align-items: center; background: var(--night); color: var(--night-fg); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--hot); padding: 9px 16px; font-size: 17px; line-height: 1.35; margin-top: 20px; }
+  section.ce .demo .tag { flex: none; background: var(--hot); color: #fff; font-weight: 700; letter-spacing: 0.2em; font-size: 12px; padding: 3px 8px; text-transform: uppercase; }
+  section.ce .demo.extra .tag { background: var(--bg); color: var(--ink); }
+  section.ce .demo.voice .tag { background: transparent; color: var(--night-fg); border: 1px solid var(--night-fg); }
+  section.ce .demo b { color: #fff; }
+  section.ce .demo code { color: var(--night-fg); border-color: var(--night-fg); background: transparent; }
+  /* ask the room */
+  section.ce .ask { border: 3px dashed var(--hot); background: var(--paper); padding: 8px 16px; font-size: 18px; font-weight: 700; margin-top: 16px; }
+  section.ce .ask .k { color: var(--hot); font-size: 12px; letter-spacing: 0.22em; margin-right: 10px; }
+  /* in your daily work */
+  section.ce .daily { margin-top: 20px; border: 3px solid var(--ink); background: var(--paper); box-shadow: 7px 7px 0 var(--hot); padding: 12px 18px; }
+  section.ce .daily .k { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 4px; }
+  section.ce .daily li { font-size: 19px; padding: 6px 0 6px 26px; font-weight: 700; }
+  section.ce .daily li::before { top: 5px; }
+  /* bigger columns for spread-out slides */
+  section.ce .col.big { padding: 16px 20px; }
+  section.ce .col.big .k { font-size: 22px; }
+  section.ce .col.big .k span { font-size: 13px; }
+  section.ce .col.big .p { font-size: 16px; }
+  section.ce .col.big li { font-size: 18px; padding: 8px 0 8px 22px; }
+  section.ce .col.big li::before { top: 7px; }
+  section.ce .problem { border-left: 8px solid var(--hot); background: var(--panel); padding: 10px 18px; font-size: 21px; font-weight: 700; margin-bottom: 20px; }
+  section.ce .problem .k { display: block; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hot); margin-bottom: 2px; }
+  /* three paths for big output */
+  section.ce .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  section.ce .path { border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--bg); padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+  section.ce .path.bad { background: var(--ink); color: var(--bg); box-shadow: 6px 6px 0 var(--hot); }
+  section.ce .path .n { font-size: 12px; letter-spacing: 0.24em; }
+  section.ce .path .h { font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -0.02em; }
+  section.ce .path pre { margin: 0; font-size: 13px; padding: 8px 10px; box-shadow: none; white-space: pre-wrap; }
+  section.ce .path.bad pre { border-color: var(--bg); }
+  section.ce .path .in { margin-top: auto; border-top: 2px solid currentColor; padding-top: 8px; font-size: 16px; line-height: 1.3; }
+  section.ce .path .in b { display: block; font-size: 24px; letter-spacing: -0.03em; }
+  section.ce .note { margin-top: 18px; font-size: 17px; line-height: 1.4; border-left: 6px solid var(--ink); background: var(--panel); padding: 8px 14px; }
+  /* flow of steps */
+  section.ce .flow { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; align-items: stretch; }
+  section.ce .flow .st { border: 2px solid var(--ink); background: var(--bg); padding: 10px 12px; font-size: 16px; line-height: 1.3; position: relative; margin-right: 22px; box-shadow: 4px 4px 0 var(--ink); }
+  section.ce .flow .st:last-child { margin-right: 0; }
+  section.ce .flow .st::after { content: '→'; position: absolute; right: -21px; top: 40%; font-weight: 700; font-size: 18px; }
+  section.ce .flow .st:last-child::after { content: none; }
+  section.ce .flow .st.dark { background: var(--ink); color: var(--bg); }
+  section.ce .flow .st.hot { background: var(--hot); color: #fff; }
+  section.ce .flow .st b { display: block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+  section.ce .flow .st code { white-space: normal; }
+  section.ce .flow .st.dark code, section.ce .flow .st.hot code { color: inherit; border-color: currentColor; background: transparent; }
+  /* setting slide */
+  section.ce .setting { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  section.ce .panels .p { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--ink); font-size: 17px; line-height: 1.3; }
+  section.ce .panels .p:last-child { border-bottom: none; }
+  section.ce .panels .p b { background: var(--ink); color: var(--bg); padding: 2px 8px; text-align: center; align-self: start; font-size: 15px; }
+  section.ce .scenes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+  section.ce .scene { border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); background: var(--bg); padding: 10px 14px; }
+  section.ce .scene .v { font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: -0.03em; }
+  section.ce .scene .d { font-size: 15px; line-height: 1.3; margin-top: 4px; }
+  /* before/after context stacks */
+  section.ce .ba { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  section.ce .ba .colh { font-weight: 700; font-size: 18px; text-transform: uppercase; margin-bottom: 8px; }
+  section.ce .ba .colh span { display: block; font-size: 12px; font-weight: 400; letter-spacing: 0.16em; opacity: 0.75; }
+  section.ce .ba .it { border: 2px solid var(--ink); padding: 4px 10px; font-size: 14px; line-height: 1.25; margin-bottom: 5px; background: var(--bg); }
+  section.ce .ba .it.sys { background: var(--panel-strong); }
+  section.ce .ba .it.tool { background: var(--ink); color: var(--bg); }
+  section.ce .ba .it.cleared { background: var(--paper); border-style: dashed; color: var(--ink-soft); }
+  section.ce .ba .it.sum { background: var(--hot); color: #fff; font-weight: 700; }
+  section.ce .ba .cost { margin-top: 8px; font-size: 14px; line-height: 1.35; border-top: 2px solid var(--ink); padding-top: 6px; }
+  section.ce .ba .cost b { color: var(--hot); }
+  /* quiz */
+  section.ce .quiz { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+  section.ce .quiz .qi { border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); background: var(--bg); padding: 14px 14px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; }
+  section.ce .quiz .qi .f { font-weight: 700; font-size: 19px; line-height: 1.3; }
+  section.ce .quiz .qi .f span { display: block; font-weight: 400; font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+  section.ce .quiz .qi .a { margin-top: 10px; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--ink); color: var(--bg); padding: 3px 8px; align-self: flex-start; }
+  section.ce .quiz .qi .a.q { background: transparent; color: var(--ink-faint); border: 2px dashed var(--ink-faint); }
+  section.ce pre code { white-space: pre; font-size: 15px; }
+  section.ce .path pre code { font-size: 13px; }
+  section.ce .flow .st::after { color: var(--ink); }
+  section.ce .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  section.ce .cmp .big { font-weight: 700; font-size: 28px; letter-spacing: -0.03em; }
+
+  section.ce .costs { padding: 14px 18px; }
+  section.ce .costs .chips div { font-size: 16px; line-height: 1.35; }
+  section.ce .costs .chips b { font-size: 19px; margin-bottom: 4px; }
+  section.ce .axes.big.three { grid-template-columns: 150px 1fr 1fr 1fr; }
 
   /* ---- Closing ---- */
   section.closing {
@@ -1251,12 +1336,11 @@ style: |
 ## Agenda for today
 
 1. Context Management Overview
-   1. Context Anatomy: what is the context window and what goes in it
+   1. Context Anatomy: what is in the context window. Demo: eduagent
    2. Context Rot: why longer context hurts
    3. Caching: make-it-or-break-it for prod agents
-   4. Context engineering techniques
-   5. So what? Lessons for everyday interactions with agents
-   6. Demo: custom educational harness based on codex
+   4. Context engineering: four strategies, live on a real repo
+   5. Takeaways for your daily work with agents
 2. Workshop: manage context for trader agents
 
 ---
@@ -1836,7 +1920,7 @@ style: |
 
 # Context Engineering
 
-<div class="kicker">Not more information. The <strong>smallest set</strong> of high-signal tokens for the next step.</div>
+<div class="kicker">The smallest set of <strong>high-signal tokens</strong> for the next step. Four strategies, shown live on a real repo.</div>
 
 ---
 
@@ -1844,10 +1928,10 @@ style: |
 
 ## What is context engineering?
 
-<div class="def">Caching makes long context <strong>cheaper</strong>. Context engineering makes it <strong>smaller</strong>.</div>
+<div class="def">Caching makes long context <strong>cheaper</strong><br>Context engineering makes it <strong>smaller</strong></div>
 
 <div class="quotes">
-<div class="qc dark"><div>"Finding the <span class="hl">smallest possible set of high-signal tokens</span> that maximize the likelihood of some desired outcome"</div><span class="attrib">— Anthropic</span></div>
+<div class="qc"><div>"Finding the <span class="hl">smallest possible set of high-signal tokens</span> that maximize the likelihood of some desired outcome"</div><span class="attrib">— Anthropic</span></div>
 <div class="qc"><div>"The delicate art and science of filling the context window with <span class="hl">just the right information</span> for the next step"</div><span class="attrib">— Andrej Karpathy</span></div>
 <div class="qc"><div>"The art of providing all the context for the task to be <span class="hl">plausibly solvable</span> by the LLM"</div><span class="attrib">— Tobi Lütke, Shopify</span></div>
 </div>
@@ -1870,20 +1954,20 @@ style: |
 
 <!-- _class: ce -->
 
-## Four moves of context engineering
+## Four strategies of context engineering
 
 <div class="moves">
 
-<div class="m dark">
+<div class="m">
 <div class="n">// 01</div>
 <div class="v">✍️ Write</div>
-<div class="d">Save it outside the window, so it survives</div>
+<div class="d">Save information outside the context window</div>
 
-- Notes and memory files
-- Offload raw data to files
-- Todo list (recitation)
+- Todo list
+- Handoff file
+- Memory files
 
-<div class="loss"><b>Loses</b><br/>Freshness: memory goes stale</div>
+<div class="loss"><b>Loses</b><br/>Freshness: memory goes stale<br/>&nbsp;</div>
 </div>
 
 <div class="m">
@@ -1891,8 +1975,9 @@ style: |
 <div class="v">🎯 Select</div>
 <div class="d">Pull in only what the next step needs</div>
 
-- Just-in-time retrieval
-- Progressive disclosure: skills, tool search, `--help`
+- AGENTS.md vs skills
+- Search: grep, graph
+- Only the matches from big output
 
 <div class="loss"><b>Loses</b><br/>What the agent doesn't know to ask for</div>
 </div>
@@ -1902,8 +1987,8 @@ style: |
 <div class="v">✂️ Compress</div>
 <div class="d">Fewer tokens for the same information</div>
 
-- Token-efficient tools
-- Tool result clearing
+- Filter output at the source
+- Clear old tool outputs
 - Compaction
 
 <div class="loss"><b>Loses</b><br/>Details, and you can't see which</div>
@@ -1915,14 +2000,12 @@ style: |
 <div class="d">Do heavy work in another window</div>
 
 - Subagents
-- Code execution sandbox
+- Code execution
 
 <div class="loss"><b>Loses</b><br/>The parent's context at the handoff</div>
 </div>
 
 </div>
-
-<div class="take">For any new agent feature, ask: <span class="hl">which of the four is it, and what does it lose?</span></div>
 
 <div class="src">LangChain, Context Engineering for Agents, 2025 · Anthropic, Effective context engineering, 2025</div>
 
@@ -1930,43 +2013,57 @@ style: |
 
 <!-- _class: ce -->
 
-<div class="movehead"><span class="n">// 01</span><span class="v">✍️ Write</span><span class="d">Save it outside the window, so it survives</span></div>
+## Running example: working on a big, unfamiliar repo
 
-## Write: save context outside the window
+<div class="setting">
+
+<div class="col big">
+<div class="k">The repo: pi<span>github.com/earendil-works/pi</span></div>
+
+- A coding-agent harness: TypeScript monorepo, 11 packages, ~410K lines
+- CI is red: 55 of the last 100 runs failed. One failed job log ≈ 115K tokens
+- AGENTS.md and CONTRIBUTING.md: ~230 lines of rules
+- **pi is only the repo. The agent is Claude Code**
+
+</div>
+
+<div class="col big panels">
+<div class="k">What to watch<span>quantext: rebuilds every call from the session log</span></div>
+<div class="p"><b>Context</b>What each call holds, by category, and how it was billed</div>
+<div class="p"><b>Changed</b>What changed since the last call. Cache breaks, and why</div>
+<div class="p"><b>Tools</b>Output tokens of each tool call, and its lifetime cost</div>
+<div class="p"><b>Compact</b>What a compaction kept, removed and summarised</div>
+</div>
+
+</div>
+
+---
+
+<!-- _class: ce -->
+
+<div class="movehead"><span class="n">// 01</span><span class="v">✍️ Write</span><span class="d">Save information outside the context window</span></div>
+
+<div class="problem"><span class="k">Problem</span>The context window is temporary: it fills up, sessions end, compaction drops details</div>
 
 <div class="lv">
 
-<div class="col">
+<div class="col big">
 <div class="k">A · Task memory<span>Lives until the task is done</span></div>
-<div class="p">Problem: the goal gets lost in the middle. After compaction or in a new session, the agent starts with an empty head</div>
 
-- **Offload raw data** - big outputs go to disk, only a path stays. Restorable
-- **Plan + recitation** - a todo list, updated each step, keeps the goal at the end of the context
-- **Scratchpad** - findings and decisions as it works, e.g. `NOTES.md`
-- **Handoff** - progress file + git + task list in JSON. `SPEC.md` for a fresh session
+- **Todo list** - the plan, updated at each step
+- **Handoff file** - progress for a fresh session
 
 </div>
 
-<div class="col dark">
+<div class="col big dark">
 <div class="k">B · Long-term memory<span>Lives across tasks</span></div>
-<div class="p">Problem: each session forgets what the last one learned</div>
 
-- **Human-written** - `AGENTS.md` / `CLAUDE.md`. Always loaded, so keep it short
-- **Agent-written during work** - the agent decides to save a fact. Claude Code auto memory, ChatGPT memory
-- **Consolidated offline ("dreaming")** - a background job reads old sessions and merges them. Codex memories
-
-</div>
+- **Human-written** - `AGENTS.md` / `CLAUDE.md`, always loaded
+- **Agent-written during work** - Claude Code auto memory
+- **Consolidated offline** - a background job merges old sessions: Codex memories
 
 </div>
 
-<div class="costs">
-<div class="k">What Write costs</div>
-<div class="chips">
-<div><b>Read back</b>A note helps only if it is read at the right time. That is a Select question</div>
-<div><b>Stale</b>Wrong memory = poisoning that persists across sessions</div>
-<div><b>Leaks</b>Memory can leak into unrelated tasks</div>
-<div><b>Who writes</b>Agent: spends attention mid-task. Offline job: free, but arrives late</div>
-</div>
 </div>
 
 <div class="src">Manus, 2025 · Anthropic, Effective harnesses for long-running agents, 2025 · LangChain, 2025</div>
@@ -2009,9 +2106,144 @@ style: |
 <div class="tile"><div class="big">Procedural</div><div class="d">How to do things: AGENTS.md rules, skills</div></div>
 </div>
 
-<div class="take">Both use the same trick: a <span class="hl">small index upfront</span>, details on demand</div>
+<div class="take">Both use the same trick: a <span class="hl">small index upfront</span>, details on demand. That is Select</div>
 
 <div class="src">CoALA, Sumers et al., 2023 · Claude Code memory docs · Codex source</div>
+
+---
+
+<!-- _class: ce -->
+
+## Write: memory goes stale
+
+<div class="flow">
+<div class="st"><b>Session 1</b>Learns: "run tests with <code>npm test</code> in packages/agent"</div>
+<div class="st dark"><b>Auto memory</b>The agent writes a note and links it in <code>MEMORY.md</code></div>
+<div class="st"><b>Session 2</b>The index is loaded upfront. The fact helps</div>
+<div class="st"><b>The repo changes</b>The test script is renamed</div>
+<div class="st hot"><b>Session 3</b>Follows the old fact: wasted steps, or a wrong fix</div>
+</div>
+
+<div class="lv gap">
+
+<div class="col big dark">
+<div class="k">Poisoning that persists<span>across sessions</span></div>
+
+- A wrong note is read at the start of every session
+- The agent trusts it more than the code
+
+</div>
+
+<div class="col big">
+<div class="k">What helps</div>
+
+- Look at the memory files now and then. Delete wrong ones
+- Memory says *where to look*, the repo says *what is true*
+
+</div>
+
+</div>
+
+<div class="demo extra"><span class="tag">Demo</span><span>The Memory page in quantext, then session 2: find <code>MEMORY.md</code> in the injected context</span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Write: the todo list lives outside the context
+
+<div class="flow">
+<div class="st dark"><b>1 · Model</b><code>TaskCreate</code> per step, <code>TaskUpdate</code> with only the new status</div>
+<div class="st"><b>2 · Harness</b>Stores the list outside the context, shows it in the UI</div>
+<div class="st hot"><b>3 · Later</b>Tasks not touched for a while? The harness injects the list at the end of the context</div>
+</div>
+
+<div class="lv gap">
+
+<div class="col big">
+<div class="k">Pros</div>
+
+- The goal comes back at the end, where attention is strongest
+- Cheap: small calls, no full plan in every update
+- Survives compaction: the list is not in the history
+
+</div>
+
+<div class="col big">
+<div class="k">Cons</div>
+
+- Works only if the model keeps it up to date
+- The reminders add tokens
+- Not always on: off by default for Claude 5 models in interactive mode
+
+</div>
+
+</div>
+
+<div class="note"><strong>Codex is different:</strong> <code>update_plan</code> sends the full plan every time, and nothing is injected. The newest copy is just near the end of the history</div>
+
+<div class="demo"><span class="tag">Demo</span><span>First look at quantext: <code>TaskCreate</code> and <code>TaskUpdate</code> in Tool calls</span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Write: hand off to a fresh session
+
+<div class="cmp">
+
+<div>
+
+```
+# PROGRESS.md
+Goal:  fix the failing test in packages/agent
+Done:  cause found: <file:line>, <why>
+Open:  is the retry flaky on CI only?
+Next:  run `npm test` in packages/agent
+Files: src/agent-loop.ts, test/loop.test.ts
+```
+
+</div>
+
+<div class="col big">
+<div class="k">Three steps</div>
+
+- "Write PROGRESS.md: goal, done, open, next step, key files"
+- `/clear` (Claude Code) or `/new` (Codex)
+- "Continue from PROGRESS.md"
+
+</div>
+
+</div>
+
+<div class="note"><strong>Compaction is an automatic handoff.</strong> Codex's compaction prompt asks for "a handoff summary for another LLM". Your own file is a handoff that you can read, edit and keep</div>
+
+<div class="demo extra"><span class="tag">Demo</span><span>Handoff, then <code>/clear</code>. <b>Compare the two sessions</b>: context size and cost per call</span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Write: what it costs, and what to do
+
+<div class="costs">
+<div class="k">What Write costs</div>
+<div class="chips">
+<div><b>Read back</b>A note helps only if it is read at the right time. That is a Select question</div>
+<div><b>Stale</b>Wrong memory = poisoning that persists across sessions</div>
+<div><b>Leaks</b>Memory can leak into unrelated tasks</div>
+<div><b>Who writes</b>Agent: spends attention mid-task. Offline job: free, but arrives late</div>
+</div>
+</div>
+
+<div class="daily">
+<div class="k">In your daily work</div>
+
+- Ask for a todo list on long tasks. Check that the agent keeps it up to date
+- End a long session with a handoff file, then start a fresh one
+- Look at what your agent remembers. Prune it
+
+</div>
 
 ---
 
@@ -2021,35 +2253,149 @@ style: |
 
 ## Select: who picks the context, and when
 
-<div class="lv three">
+<div class="problem"><span class="k">Problem</span>The agent can't use what it doesn't see, and everything it sees costs tokens and attention</div>
 
-<div class="col">
-<div class="k">A · Upfront<span>The harness selects before the call</span></div>
+<div class="lv">
 
-- **Always loaded** - system prompt, AGENTS.md, skill metadata, `@file`
-- **Classic RAG** - top-k chunks in the prompt. The model can't ask for more
-- **Tool loadout** - pick tools per task. Tool choice gets confused above ~30 tools
+<div class="col big">
+<div class="k">A · Upfront<span>The harness selects, before the call</span></div>
 
-</div>
-
-<div class="col dark">
-<div class="k">B · On demand<span>The agent selects at runtime</span></div>
-
-- **Agentic search** - grep, glob, read ranges. Claude Code: grep beat vector DBs
-- **Semantic search as a tool** - Cursor: +12.5% accuracy on top of grep
-- **Progressive disclosure** - small index always loaded, details on demand
+- `AGENTS.md`, `@file`, skill descriptions, classic RAG
+- **Plus:** always there, cheap, predictable
+- **Minus:** paid in every request, even when not needed
 
 </div>
 
-<div class="col">
-<div class="k">C · Hybrid<span>Most real agents</span></div>
+<div class="col big dark">
+<div class="k">B · On demand<span>The agent selects, at runtime</span></div>
 
-- Claude Code loads CLAUDE.md upfront and greps for the rest
-- Upfront fits content that changes less often, e.g. legal or finance
+- grep / glob / read, skill bodies, tool search
+- **Plus:** only what the task asks for
+- **Minus:** more turns, and it misses what it doesn't know to ask for
 
 </div>
 
 </div>
+
+<div class="take">Most agents mix both: a <span class="hl">small index upfront</span>, details on demand</div>
+
+---
+
+<!-- _class: ce -->
+
+## Select: always loaded vs progressive disclosure
+
+<div class="lv">
+
+<div class="col big dark">
+<div class="k">AGENTS.md<span>Always loaded</span></div>
+
+- Every token in every request
+- 300 lines ≈ 4K tokens × 50 requests = **200K input tokens** per session
+- The cache makes it cheaper, but it still takes attention
+
+</div>
+
+<div class="col big">
+<div class="k">Skill<span>Progressive disclosure</span></div>
+
+- Always: name + description, ~50 tokens
+- When the task needs it: the `SKILL.md` body
+- Only if needed: bundled files and scripts
+
+</div>
+
+</div>
+
+<div class="sub">The same pattern in three places</div>
+
+<div class="chain big">
+<div class="lbl">Skills</div><div class="s first">name + description</div><div class="a">→</div><div class="s">SKILL.md body</div><div class="a">→</div><div class="s">bundled files</div>
+<div class="lbl">Tools</div><div class="s first">tool search stub</div><div class="a">→</div><div class="s">full definition (−85% tokens)</div><div class="a">→</div><div class="s">CLI <code>--help</code></div>
+<div class="lbl">Memory</div><div class="s first">memory_summary.md</div><div class="a">→</div><div class="s">grep MEMORY.md</div><div class="a">→</div><div class="s">rollout summaries</div>
+</div>
+
+<div class="demo"><span class="tag">Demo</span><span>pi's rules in CLAUDE.md vs as a skill, on a task that doesn't need them. <b>Compare the injected context and the cost</b></span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Select: how the agent finds code
+
+<div class="axes big three">
+<div class="h"></div>
+<div class="h">Keyword: grep, paths</div>
+<div class="h">Structure: AST, graph</div>
+<div class="h">Semantic: embeddings</div>
+
+<div class="r">Upfront<span>harness</span></div>
+<div><b>AGENTS.md, @file</b>Always there, predictable</div>
+<div><b>Aider repo map</b>Key symbols of the repo in the prompt</div>
+<div><b>Classic RAG</b>Top-k chunks for the query</div>
+
+<div class="r">On demand<span>agent</span></div>
+<div class="cc"><b>Claude Code, Codex</b>grep / glob / read, refine the query</div>
+<div><b>graphify</b>query · path A B · explain, on a code graph</div>
+<div><b>Cursor semantic search</b>A tool, +12.5% accuracy on top of grep</div>
+</div>
+
+<div class="note"><strong>grep is the default, and it works well.</strong> graphify claims −80% tokens. On pi (39K nodes) its path from <code>coding-agent</code> to the provider went through re-exports, not the call chain: measure on your own repo</div>
+
+---
+
+<!-- _class: ce -->
+
+## Select: big output, pull in only what you need
+
+<div class="paths">
+
+<div class="path bad">
+<div class="n">// 01</div>
+<div class="h">MCP tool</div>
+
+```
+get_job_logs(job_id)
+```
+
+<div class="in"><b>~115K-token log</b>Too big: Claude Code saves it to a file, the model gets a path and "use jq". <b>7 turns · $0.11</b></div>
+</div>
+
+<div class="path">
+<div class="n">// 02</div>
+<div class="h">CLI + pipe</div>
+
+```
+gh api …/jobs/<id>/logs \
+  | grep -A12 "FAIL "
+```
+
+<div class="in"><b>Only the matches</b>The shell filters before the model reads anything. <b>2 turns · $0.06</b></div>
+</div>
+
+<div class="path">
+<div class="n">// 03</div>
+<div class="h">CLI → file → search</div>
+
+```
+gh api …/jobs/<id>/logs > ci.log
+grep -n "FAIL " ci.log
+```
+
+<div class="in"><b>A path + matches</b>The log stays on disk (Write). Read more later. <b>3 turns · $0.07</b></div>
+</div>
+
+</div>
+
+<div class="note"><strong>Harnesses now offload big results by themselves, but it costs turns.</strong> A direct pipe: 3× fewer turns, half the cost. "Code mode" lets the agent call MCP tools from code, if the harness supports it</div>
+
+<div class="demo"><span class="tag">Demo</span><span>A failed CI run of pi, three ways. <b>Compare turns and cost</b>, then open Tool calls</span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Select: what it costs, and what to do
 
 <div class="costs">
 <div class="k">What Select costs</div>
@@ -2061,35 +2407,17 @@ style: |
 </div>
 </div>
 
-<div class="src">Anthropic, 2025 · Pragmatic Engineer, Building Claude Code, 2026 · Cursor, Semantic search, 2025 · Drew Breunig, 2025 · Manus, 2025</div>
+<div class="daily">
+<div class="k">In your daily work</div>
 
----
+- Keep AGENTS.md short: only what every task needs. Move the rest into skills
+- Write skill descriptions that say <u>when</u> to use the skill
+- Pipe big output, or save it to a file and grep it. Avoid big MCP results
+- Turn off MCP servers and tools that you don't use
 
-<!-- _class: ce -->
-
-## Select: two axes, one pattern
-
-<div class="axes big">
-<div class="h"></div>
-<div class="h">Keyword / structure: grep, paths</div>
-<div class="h">Semantic: embeddings</div>
-
-<div class="r">Upfront<span>harness</span></div>
-<div><b>AGENTS.md, @file</b>Always there, cheap, predictable</div>
-<div><b>Classic RAG</b>Embed the query, top-k chunks</div>
-
-<div class="r">On demand<span>agent</span></div>
-<div class="cc"><b>Claude Code, Codex</b>grep / glob / read, refine the query</div>
-<div><b>Cursor semantic search tool</b>Same embeddings, the agent decides when</div>
 </div>
 
-<div class="sub">Progressive disclosure: the same pattern in three places</div>
-
-<div class="chain big">
-<div class="lbl">Skills</div><div class="s first">name + description</div><div class="a">→</div><div class="s">SKILL.md body</div><div class="a">→</div><div class="s">bundled files</div>
-<div class="lbl">Tools</div><div class="s first">tool search stub</div><div class="a">→</div><div class="s">full definition (−85% tokens)</div><div class="a">→</div><div class="s">CLI <code>--help</code>, MCP as code files</div>
-<div class="lbl">Memory</div><div class="s first">memory_summary.md</div><div class="a">→</div><div class="s">grep MEMORY.md</div><div class="a">→</div><div class="s">rollout summaries</div>
-</div>
+<div class="src">Anthropic, 2025 · Pragmatic Engineer, Building Claude Code, 2026 · Cursor, Semantic search, 2025 · Aider, Repository map · graphify</div>
 
 ---
 
@@ -2099,52 +2427,118 @@ style: |
 
 ## Compress: where we cut
 
+<div class="problem"><span class="k">Problem</span>Tool calls and results fill 57–68% of the window, and every output is sent again on every later call</div>
+
 <div class="lv three">
 
-<div class="col">
-<div class="k">A · At the source<span>Before tokens enter the context</span></div>
+<div class="col big">
+<div class="k">A · At the source<span>Before tokens enter</span></div>
 
-- **Token-efficient tools** - pagination, filters, truncation. Claude Code caps tool output at 25K tokens
-- **Output filters** - RTK: failures only, short `git status`. 60–90% less bash output
-- **Terse model output** - Caveman, "80% of ASD-STE100". DIY, weak evidence
+- Filters for command output: RTK
+- Token-efficient tools: pagination, filters
+- Harness caps: Claude Code 25K per tool
 
 </div>
 
-<div class="col dark">
+<div class="col big dark">
 <div class="k">B · Discard<span>In the history, no LLM</span></div>
 
-- **Tool result clearing** (observation masking) - replace old outputs with a placeholder, keep the call
+- Clear old tool outputs, keep the calls
 - Same for old thinking blocks
-- Restorable, if the output was offloaded to a file (Write)
+- Restorable, if the output is on disk
 
 </div>
 
-<div class="col">
+<div class="col big">
 <div class="k">C · Condense<span>In the history, LLM, lossy</span></div>
 
-- **Compaction** - summarise the history, start a new window with the summary
-- **Claude Code** keeps decisions, open bugs, 5 recent files. Steer with `/compact <focus>`
-- **Codex** gets an encrypted item from the server. You can't read what it kept
+- Compaction: summarise, start again with the summary
+- Steer it: `/compact <focus>`
+- Codex on OpenAI: an encrypted item you can't read
 
 </div>
 
 </div>
 
-<div class="bar"><b>Hybrid</b>Mask first, summarise only when masking is not enough: −7% cost vs masking, −11% vs summary</div>
-
-<div class="src">Anthropic, Writing tools for agents, 2025 · RTK · JetBrains, The Complexity Trap, NeurIPS 2025 · Claude Code docs · OpenAI Compaction docs</div>
+<div class="src">Anthropic, Writing tools for agents, 2025 · RTK · Claude Code docs · OpenAI Compaction docs</div>
 
 ---
 
-<!-- _class: plate short -->
+<!-- _class: ce -->
 
-## Compress: a pipeline, not one summary
+## Compress at the source: filter tool output
 
-<div class="frame"><img src="../images/compaction-raschka.png" /></div>
+<div class="lv">
 
-<div class="note">Clip big outputs, drop repeated reads, keep <strong>recent detail rich</strong> and older detail short</div>
+<div class="col big">
+<div class="k">RTK: a CLI proxy<span>github.com/rtk-ai/rtk</span></div>
 
-<div class="note src">Sebastian Raschka, Components of a Coding Agent</div>
+- `git status`: a 3-line summary instead of 40 lines
+- `npm test` / `pytest`: failures only, passes as a count
+- `git diff`, `git log`: less context, one line per commit
+- `ls` / `grep`: grouped by file, long lines cut
+
+</div>
+
+<div class="col big dark">
+<div class="k">Good to know</div>
+
+- 90% less output ≠ 90% less cost: output is one part of the input
+- Filters before output enters the context, so no cache break
+- `rtk bypass <cmd>` gives the raw output
+- Setup: `rtk init -g` adds a Claude Code hook that rewrites `git status` to `rtk git status`
+
+</div>
+
+</div>
+
+<div class="demo extra"><span class="tag">Demo</span><span>The same steps (<code>npm test</code>, <code>git status</code>, <code>git diff</code>) with and without RTK, then <code>rtk gain</code></span></div>
+
+---
+
+<!-- _class: ce -->
+
+## Discard vs condense: what the model sees after
+
+<div class="ba">
+
+<div>
+<div class="colh">Before<span>a long session</span></div>
+<div class="it sys">System prompt + tools</div>
+<div class="it sys">CLAUDE.md, memory, environment</div>
+<div class="it">User: "Why does CI fail?"</div>
+<div class="it tool">Tool call + output, 8K</div>
+<div class="it tool">Tool call + output, 6K</div>
+<div class="it">Assistant: "The cause is…"</div>
+<div class="it tool">Tool call + output, 5K</div>
+<div class="it">User: "Fix it"</div>
+</div>
+
+<div>
+<div class="colh">After clear<span><code>/clear-tool-outputs keep 1</code></span></div>
+<div class="it sys">System prompt + tools</div>
+<div class="it sys">CLAUDE.md, memory, environment</div>
+<div class="it">User: "Why does CI fail?"</div>
+<div class="it cleared">Tool call + [Old tool result content cleared]</div>
+<div class="it cleared">Tool call + [Old tool result content cleared]</div>
+<div class="it">Assistant: "The cause is…"</div>
+<div class="it tool">Tool call + output, 5K</div>
+<div class="it">User: "Fix it"</div>
+<div class="cost">All messages word for word. <b>0 LLM calls.</b> The cache breaks at the first cleared output</div>
+</div>
+
+<div>
+<div class="colh">After compaction<span><code>/compact</code></span></div>
+<div class="it sys">System prompt + tools</div>
+<div class="it sys">CLAUDE.md, memory, environment (again)</div>
+<div class="it sum">Summary: "This session is being continued from a previous conversation…"</div>
+<div class="it">Recent files, todo list (attached again)</div>
+<div class="cost">All messages, tool calls and outputs are replaced by the summary. <b>1 LLM call</b>, a new prefix, lost details</div>
+</div>
+
+</div>
+
+<div class="demo"><span class="tag">Demo</span><span>One session: <code>/clear-tool-outputs</code>, then <code>/compact</code>. Then ask about an early detail</span></div>
 
 ---
 
@@ -2158,30 +2552,56 @@ style: |
 <div class="tile"><div class="big">0 LLM calls</div><div class="d">Masking is free. Summary costs a call and a buffer in the window</div><div class="s">Claude Code, 2026</div></div>
 </div>
 
+<div class="bar"><b>Hybrid</b>Mask first, summarise only when masking is not enough: −7% cost vs masking, −11% vs summary</div>
+
 <div class="lv gap">
 
-<div class="col">
+<div class="col big">
 <div class="k">Never remove<span>What the next step needs</span></div>
 
 - **Errors and stack traces** - so the agent doesn't repeat them
-- **The plan / todo list** and the user's instructions
+- **The plan** and the user's instructions
 - **The last N tool results** - the fresh tail
 
 </div>
 
-<div class="col">
-<div class="k">What Compress costs<span>Lossy and cache-breaking</span></div>
+<div class="col big">
+<div class="k">Cache-friendly<span>Clearing and compaction break the prefix</span></div>
 
-- **Lost details** - you can't see which. Back only if raw data is on disk
-- **New prefix** - after compaction, only system prompt and tools stay cached
-- **Clearing breaks the cache** - so clear in big chunks (`clear_at_least`)
-- **Summary call** - use a cache-safe fork: same prefix + compaction prompt
-
-</div>
+- Clear in big chunks (`clear_at_least`)
+- Compact at natural breaks, not mid-step
+- Summary call: a cache-safe fork, same prefix
 
 </div>
 
-<div class="take">Start with masking. Summarise only <span class="hl">when you can measure the gain</span></div>
+</div>
+
+<div class="src">JetBrains, The Complexity Trap, NeurIPS 2025 · Claude API, Context editing · Claude Code docs</div>
+
+---
+
+<!-- _class: ce -->
+
+## Compress: what it costs, and what to do
+
+<div class="costs">
+<div class="k">What Compress costs</div>
+<div class="chips">
+<div><b>Lost details</b>You can't see which. Back only if the raw data is on disk</div>
+<div><b>New prefix</b>After compaction, only the system prompt and tools stay cached</div>
+<div><b>Cache break</b>Clearing breaks the cache from the first cleared output</div>
+<div><b>Summary call</b>Compaction costs one more LLM call</div>
+</div>
+</div>
+
+<div class="daily">
+<div class="k">In your daily work</div>
+
+- Filter tool output at the source: RTK, `--quiet`, `| tail`
+- Clear old tool output at natural breaks. In Claude Code: a plugin, e.g. quantext `/clear-tool-outputs`
+- `/compact <focus>` at natural breaks. New task → new session
+
+</div>
 
 ---
 
@@ -2242,6 +2662,8 @@ style: |
 <div><b>Permissions</b>Read-only is the safe default</div>
 </div>
 
+<div class="demo extra"><span class="tag">Demo</span><span>An Explore subagent: quantext shows it as its own lane. <b>Its tokens vs the summary</b> that comes back to the parent</span></div>
+
 <div class="src">Anthropic, How we built our multi-agent research system, 2025 · Cognition, Multi-Agents: What's Actually Working, 2026 · Thariq Shihipar, 2026</div>
 
 ---
@@ -2250,7 +2672,7 @@ style: |
 
 ## Isolate: code execution, and the price
 
-<div class="sub top">Outside the LLM: the agent writes a script, only the final output enters the context</div>
+<div class="sub top">Outside the LLM: the agent writes a script, only the final output enters the context. The same idea as the shell pipe in Write</div>
 
 <div class="tiles three">
 <div class="tile dark"><div class="big">150K → 2K</div><div class="d">Tokens with MCP tools as code files</div><div class="s">Anthropic, 2025</div></div>
@@ -2267,7 +2689,50 @@ style: |
 <div class="tile"><div class="big">Overhead</div><div class="d">Container start, script writing. Pays off only with fan-out or big results</div></div>
 </div>
 
-<div class="take">Isolate when the work is <span class="hl">heavy, parallel or valuable</span>. Else stay in one window</div>
+<div class="daily">
+<div class="k">In your daily work</div>
+
+- Give exploration and review to a subagent. Keep your main context for the build
+
+</div>
+
+---
+
+<!-- _class: ce -->
+
+## Which strategy is it?
+
+<div class="ask"><span class="k">ASK THE ROOM</span>Shout the strategy: Write, Select, Compress or Isolate</div>
+
+<div class="quiz">
+<div class="qi"><div class="f"><code>/compact</code><span>Claude Code, Codex</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">CLAUDE.md<span>always loaded</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">Explore subagent<span>Claude Code</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">Skills<span>name + description first</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">RTK<span>filters <code>git status</code></span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">PROGRESS.md<span>for a fresh session</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f">Tool search<span>deferred tool stubs</span></div><div class="a q">?</div></div>
+<div class="qi"><div class="f"><code>&gt; ci.log</code><span>then grep it</span></div><div class="a q">?</div></div>
+</div>
+
+---
+
+<!-- _class: ce -->
+
+## Which strategy is it?
+
+<div class="ask"><span class="k">ASK THE ROOM</span>Shout the strategy: Write, Select, Compress or Isolate</div>
+
+<div class="quiz">
+<div class="qi"><div class="f"><code>/compact</code><span>Claude Code, Codex</span></div><div class="a">✂️ Compress</div></div>
+<div class="qi"><div class="f">CLAUDE.md<span>always loaded</span></div><div class="a">✍️ Write + 🎯 Select</div></div>
+<div class="qi"><div class="f">Explore subagent<span>Claude Code</span></div><div class="a">📦 Isolate</div></div>
+<div class="qi"><div class="f">Skills<span>name + description first</span></div><div class="a">🎯 Select</div></div>
+<div class="qi"><div class="f">RTK<span>filters <code>git status</code></span></div><div class="a">✂️ Compress</div></div>
+<div class="qi"><div class="f">PROGRESS.md<span>for a fresh session</span></div><div class="a">✍️ Write</div></div>
+<div class="qi"><div class="f">Tool search<span>deferred tool stubs</span></div><div class="a">🎯 Select</div></div>
+<div class="qi"><div class="f"><code>&gt; ci.log</code><span>then grep it</span></div><div class="a">✍️ Write + 🎯 Select</div></div>
+</div>
 
 ---
 
@@ -2275,15 +2740,16 @@ style: |
 
 ## Constraint for all four: the cache
 
-| Technique                 | Cache effect                               | Cache-friendly way                                  |
-| ------------------------- | ------------------------------------------ | --------------------------------------------------- |
-| Write: notes, todo        | None, appended as new messages             | Updates go in messages, not in the system prompt    |
-| Select: add/remove tools  | Breaks all of it, tools are near the start | Mask, don't remove. Tool search with deferred stubs |
-| Select: on-demand loading | None, results are appended                 | -                                                   |
-| Compress: clearing        | Breaks from the first cleared result       | Clear in big chunks (`clear_at_least`)              |
-| Compress: compaction      | New history = new prefix                   | Cache-safe fork for the summary call                |
-| Isolate: subagent         | Fresh brief = its own new cache            | Fork shares the parent's prefix                     |
-| Isolate: another model    | Each model has its own cache               | Subagent with a handoff, not a mid-session switch   |
+| Technique                  | Cache effect                               | Cache-friendly way                                  |
+| -------------------------- | ------------------------------------------ | --------------------------------------------------- |
+| Write: files, notes, todo  | None, appended as new messages             | Updates go in messages, not in the system prompt    |
+| Select: add/remove tools   | Breaks all of it, tools are near the start | Mask, don't remove. Tool search with deferred stubs |
+| Select: on-demand loading  | None, results are appended                 | -                                                   |
+| Compress: filter at source | None, filtered before it enters            | -                                                   |
+| Compress: clearing         | Breaks from the first cleared result       | Clear in big chunks (`clear_at_least`)              |
+| Compress: compaction       | New history = new prefix                   | Cache-safe fork for the summary call                |
+| Isolate: subagent          | Fresh brief = its own new cache            | Fork shares the parent's prefix                     |
+| Isolate: another model     | Each model has its own cache               | Subagent with a handoff, not a mid-session switch   |
 
 <div class="take">Append, don't edit. Pay for a cache break only <span class="hl">when it removes many tokens</span></div>
 
@@ -2301,13 +2767,15 @@ style: |
 <div class="n">01</div><div class="c">The model sees far more than you typed, on every call</div><div class="a">→ Run <code>/context</code> once and look</div>
 <div class="n">02</div><div class="c">More context isn't free: worse answers, quadratic cost</div><div class="a">→ 1M is a limit, not a target</div>
 <div class="n">03</div><div class="c">Caching is the rule everything else must respect</div><div class="a">→ Same model, same tools. Append, don't edit</div>
-<div class="n">04</div><div class="c">Context engineering = smallest set of high-signal tokens</div><div class="a">→ For each token: does the next step need it?</div>
-<div class="n">05</div><div class="c">Four moves: Write, Select, Compress, Isolate</div><div class="a">→ For any new feature: which of the four is it?</div>
-<div class="n">06</div><div class="c">Simple beats clever: masking, grep, a todo file</div><div class="a">→ Add complexity only when you can measure it</div>
-<div class="n">07</div><div class="c">Every technique throws something away</div><div class="a">→ Keep spec, progress and notes on disk</div>
+<div class="n">04</div><div class="c">Write: the context window is temporary</div><div class="a">→ A todo list for long tasks. A handoff file at the end</div>
+<div class="n">05</div><div class="c">Select: everything you load is paid in every request</div><div class="a">→ Short AGENTS.md, skills, only the matches from big output</div>
+<div class="n">06</div><div class="c">Compress: tool output is the main cost driver</div><div class="a">→ Filter at the source, clear old output, compact at breaks</div>
+<div class="n">07</div><div class="c">Isolate: heavy reading goes on the side</div><div class="a">→ Subagents for exploration and review</div>
+<div class="n">08</div><div class="c">Every technique throws something away</div><div class="a">→ Keep spec, progress and notes on disk</div>
 </div>
 
 ---
+
 
 <!-- _class: closing -->
 
